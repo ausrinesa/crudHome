@@ -62,8 +62,8 @@ class Home
     public function update()
     {
         $db = new DB();
-        $stmt = $db->conn->prepare("UPDATE `homes` SET `address`= ? ,`roomCount`= ? ,`isHouse`= ? ,`floor`= ? WHERE `id` = ?");
-        $stmt->bind_param("siiii", $_POST['address'], $_POST['room_count'], $_POST['is_house'], $_POST['floor'], $_POST['id']);
+        $stmt = $db->conn->prepare("UPDATE `homes` SET `address`= ? ,`room_count`= ? ,`is_house`= ? ,`floor`= ? WHERE `id` = ?");
+        $stmt->bind_param("siiii", $_POST['address'], $_POST['roomCount'], $_POST['isHouse'], $_POST['floor'], $_POST['id']);
         $stmt->execute();
 
 
@@ -97,55 +97,55 @@ class Home
         return $genres;
     }
 
-// public static function filter()
-// {
-//     $homes = [];
-//     $db = new DB();
-//     $query = "SELECT * FROM `movies` ";
-//     $first = true;
-//     if ($_GET['filter'] != "") {
-//         $query .= "WHERE `genre`=\"" . $_GET['filter'] . "\"";
-//         $first = false;
-//     }
+    public static function filter()
+    {
+        $homes = [];
+        $db = new DB();
+        $query = "SELECT * FROM `homes` ";
+        $first = true;
+        if ($_GET['filter'] != "") {
+            $query .= "WHERE `is_house`=" . $_GET['isHouse'];
+            $first = false;
+        }
 
-//     if ($_GET['priceFrom'] != "") {
-//         $query .= (($first) ? "WHERE" : "AND") . " `price` >= " . $_GET['priceFrom'] . " ";
-//         $first = false;
-//     }
+        if ($_GET['roomFrom'] != "") {
+            $query .= (($first) ? "WHERE" : "AND") . " `room_count` >= " . $_GET['roomFrom'] . " ";
+            $first = false;
+        }
 
-//     if ($_GET['priceTo'] != "") {
-//         $query .= (($first) ? "WHERE" : "AND") . " `price` <= " . $_GET['priceTo'] . " ";
-//         $first = false;
-//     }
+        if ($_GET['roomTo'] != "") {
+            $query .= (($first) ? "WHERE" : "AND") . " `room_count` <= " . $_GET['roomTo'] . " ";
+            $first = false;
+        }
 
-//     switch ($_GET['sort']) {
-//         case '1':
-//             $query .= "ORDER BY `price`";
-//             break;
+        switch ($_GET['sort']) {
+            case '1':
+                $query .= "ORDER BY `room_count`";
+                break;
 
-//         case '2':
-//             $query .= "ORDER BY `price` DESC";
-//             break;
+            case '2':
+                $query .= "ORDER BY `room_count` DESC";
+                break;
 
-//         case '3':
-//             $query .= "ORDER BY `title`";
-//             break;
+            case '3':
+                $query .= "ORDER BY `address`";
+                break;
 
-//         case '4':
-//             $query .= "ORDER BY `title` DESC";
-//             break;
-//     }
+            case '4':
+                $query .= "ORDER BY `address` DESC";
+                break;
+        }
 
 
 
-//     $result = $db->conn->query($query);
+        $result = $db->conn->query($query);
 
-//     while ($row = $result->fetch_assoc()) {
-//         $movies[] = new Movie($row['id'], $row['title'], $row['genre'], $row['producer'], $row['year'], $row['price']);
-//     }
-//     $db->conn->close();
-//     return $movies;
-// }
+        while ($row = $result->fetch_assoc()) {
+            $homes[] = new Home($row['id'], $row['address'], $row['room_count'], $row['is_house'], $row['floor']);
+        }
+        $db->conn->close();
+        return $homes;
+    }
 
 // public static function search()
 // {

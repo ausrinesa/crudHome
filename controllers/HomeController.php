@@ -42,11 +42,11 @@ class HomeContoller
 //     return Home::getGenre();
 // }
 
-//     public static function filter()
-//     {
-//         return Movie::filter();
+    public static function filter()
+    {
+        return Home::filter();
 
-//     }
+    }
 
 // public static function search()
 // {

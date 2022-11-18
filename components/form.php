@@ -3,33 +3,39 @@
         <div class="mb-3">
             <label for="form" class="form-label">Adresas</label>
             <input type="text" name='address' class="form-control" id="form" value=<?=($edit) ? "'$home->address'" : ""
-    ?>>
+                ?>>
         </div>
 
         <div class="mb-3">
             <label for="form" class="form-label">Kambarių skaičius</label>
-            <input type="number" step="1" name='roomCount' class="form-control" id="form" value=<?=($edit) ? 
-    "'$home->roomCount'" : "" ?>>
+            <input type="number" step="1" name='roomCount' class="form-control" id="form" value=<?=($edit) ?
+                "'$home->roomCount'" : "" ?>>
         </div>
-
-        <!-- <div class="mb-3">
-            <label for="form" class="form-label">tipas</label>
-            <input type="text" name='isHouse' class="form-control" id="form" value=<?=($edit) ? "'$home->isHouse'" : ""
-    ?>>
-        </div> -->
 
         <label for="isHouse">Būsto tipas</label>
 
-        <select name="isHouse" id="isHouse">
-            <option selected disabled value=""> Būsto tipas </option>
+        <select class="form-select form-control filter" name="isHouse" id="isHouse">
+            <?php
+            if ($edit) {
+                if (($home->isHouse) == 0) {
+            ?>
+            <option selected value="0">Butas</option>
+            <option value="1">Namas</option>
+            <?php } else { ?>
+            <option selected value="1">Namas</option>
+            <option value="0">Butas</option>
+            <?php }
+            } else { ?>
+            <option selected value=""> Būsto tipas </option>
             <option value="0">Butas</option>
             <option value="1">Namas</option>
+            <?php } ?>
         </select>
 
         <div class="mb-3">
             <label for="price" class="form-label">Aukštas</label>
-            <input type="number" name='floor' step="1" class="form-control" id="year" value=<?=($edit) ? $home->floor :
-    "" ?>>
+            <input type="number" name='floor' step="1" class="form-control" id="floor" value=<?=($edit) ? $home->floor :
+                "" ?>>
         </div>
 
 

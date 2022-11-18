@@ -31,12 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    // if (isset($_GET['filter'])) {
-    //     $movies = HomeContoller::filter();
-    // } else if (isset($_GET['search'])) {
-    //     $movies = MovieContoller::search();
-    // } else {
-    $homes = HomeContoller::index();
+    if (isset($_GET['filter'])) {
+        $homes = HomeContoller::filter();
+        // } else if (isset($_GET['search'])) {
+        //     $movies = MovieContoller::search();
+    } else {
+        $homes = HomeContoller::index();
+    }
 }
 
 

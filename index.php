@@ -10,7 +10,8 @@ include "./components/head.php"
 
 <body>
 
-    <?php include "./components/form.php" ?>
+    <?php include "./components/form.php";
+    include "./components/filter.php"; ?>
 
     <div class="container">
         <table class="table table-hover">
