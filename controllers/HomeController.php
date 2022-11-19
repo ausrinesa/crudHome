@@ -37,7 +37,7 @@ class HomeContoller
         Home::destroy($_POST['id']);
     }
 
-//     public static function getGenre()
+    //     public static function getGenre()
 // {
 //     return Home::getGenre();
 // }
@@ -48,9 +48,9 @@ class HomeContoller
 
     }
 
-// public static function search()
-// {
-//     return Movie::search();
-// }
+    public static function search()
+    {
+        return Home::search();
+    }
 
 }

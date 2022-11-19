@@ -7,6 +7,9 @@ include "./components/head.php"
 <h1>
     Home sweet home
 </h1>
+<?php
+include "./components/navbar.php";
+?>
 
 <body>
 
@@ -22,6 +25,7 @@ include "./components/head.php"
                     <th>Kambarių skaičius</th>
                     <th>Namas/butas?</th>
                     <th>Aukštas</th>
+                    <th>Veiksmai</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,14 +56,16 @@ include "./components/head.php"
                         <div class="d-flex flex-row  mb-3">
                             <form action="" method="post">
                                 <input type="hidden" name="id" value="<?= $home->id ?>">
-                                <button id="editBtn" class="btn btn-outline-primary" type="submit" name="edit">
+                                <button id="editBtn" class="btn btn-outline-success" type="submit" name="edit"
+                                    id="editBtn">
                                     edit
                                 </button>
                             </form>
 
                             <form action="" method="post">
                                 <input type="hidden" name="id" value="<?= $home->id ?>">
-                                <button id="deleteBtn" class="btn btn-outline-danger" type="submit" name="destroy">
+                                <button id="deleteBtn" class="btn btn-outline-danger" type="submit" name="destroy"
+                                    id="deleteBtn">
                                     delete
                                 </button>
                             </form>

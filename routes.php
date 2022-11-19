@@ -33,16 +33,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_GET['filter'])) {
         $homes = HomeContoller::filter();
-        // } else if (isset($_GET['search'])) {
-        //     $movies = MovieContoller::search();
+    } else if (isset($_GET['search'])) {
+        $homes = HomeContoller::search();
     } else {
         $homes = HomeContoller::index();
     }
 }
 
-
-
-// $genres = MovieContoller::getGenre();
 
 
 ?>

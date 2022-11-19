@@ -1,15 +1,15 @@
 <div class="container col-lg-4" id="form">
     <form method="post">
         <div class="mb-3">
-            <label for="form" class="form-label">Adresas</label>
-            <input type="text" name='address' class="form-control" id="form" value=<?=($edit) ? "'$home->address'" : ""
-                ?>>
+            <label for="address" class="form-label">Adresas</label>
+            <input type="text" name='address' class="form-control" id="address" value=<?=($edit) ? "'$home->address'" :
+    "" ?>>
         </div>
 
         <div class="mb-3">
-            <label for="form" class="form-label">Kambarių skaičius</label>
-            <input type="number" step="1" name='roomCount' class="form-control" id="form" value=<?=($edit) ?
-                "'$home->roomCount'" : "" ?>>
+            <label for="roomNumb" class="form-label">Kambarių skaičius</label>
+            <input type="number" step="1" name='roomCount' class="form-control" id="roomNumb" value=<?=($edit) ? 
+    "'$home->roomCount'" : "" ?>>
         </div>
 
         <label for="isHouse">Būsto tipas</label>

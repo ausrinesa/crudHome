@@ -1,0 +1,102 @@
+body {
+    background-image: url("https://images.unsplash.com/photo-1525183877869-fb8338380d0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1112&q=80");
+    background-size: cover;
+}
+
+.table {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+}
+
+thead {
+    background-color: antiquewhite;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    color: #003f88
+}
+
+h1 {
+    letter-spacing: 5px;
+    font-weight: bold;
+    text-align: center;
+    color: #003f88;
+}
+
+#form {
+    border: 1px solid darkblue;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+.form-control {
+    border: none;
+    border-bottom: 1px solid darkblue;
+}
+
+svg {
+    height: 30px;
+    width: 30px;
+    color: #003f88;
+}
+
+button:hover {
+    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+    transform: translateY(-0.25em);
+}
+
+#editBtn {
+    margin-right: 3px;
+    font-size: 12px;
+    padding: 5px 20px;
+    letter-spacing: 1px;
+}
+
+#deleteBtn {
+    font-size: 12px;
+    padding: 5px 15px;
+    letter-spacing: 1px;
+}
+
+#filterForm {
+    margin-left: 25%;
+    width: 50%;
+}
+
+#filterBtn {
+    background-color: cadetblue;
+    border: none;
+    padding: 6px 25px;
+    letter-spacing: 2px;
+}
+
+#saveBtn {
+    border: none;
+    padding: 6px 25px;
+    letter-spacing: 3px;
+    margin-left: 40%;
+    font-weight: bold;
+    border: none;
+    background-color: cadetblue;
+}
+
+#updateBtn {
+    border: none;
+    padding: 6px 25px;
+    letter-spacing: 3px;
+    margin-left: 40%;
+    font-weight: bold;
+    border: none;
+    background-color: cadetblue;
+}
+
+@media (max-width: 1000px) {
+    .filter-input {
+        width: 100%;
+    }
+
+    #filterBtn {
+        width: 100%;
+    }
+}

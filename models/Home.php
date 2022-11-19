@@ -83,29 +83,16 @@ class Home
     }
 
 
-    public static function getGenre()
-    {
-        $genres = [];
-        $db = new DB();
-        $query = "SELECT DISTINCT `genre` FROM `homes` ";
-        $result = $db->conn->query($query);
-
-        while ($row = $result->fetch_assoc()) {
-            $genres[] = $row['genre'];
-        }
-        $db->conn->close();
-        return $genres;
-    }
-
     public static function filter()
     {
         $homes = [];
         $db = new DB();
         $query = "SELECT * FROM `homes` ";
         $first = true;
-        if ($_GET['filter'] != "") {
+        if ($_GET['isHouse'] != "") {
             $query .= "WHERE `is_house`=" . $_GET['isHouse'];
             $first = false;
+
         }
 
         if ($_GET['roomFrom'] != "") {
@@ -147,19 +134,19 @@ class Home
         return $homes;
     }
 
-// public static function search()
-// {
-//     $movies = [];
-//     $db = new DB();
-//     $query = "SELECT * FROM `movies` where `title` like \"%" . $_GET['search'] . "%\"";
-//     $result = $db->conn->query($query);
+    public static function search()
+    {
+        $homes = [];
+        $db = new DB();
+        $query = "SELECT * FROM `homes` where `address` like \"%" . $_GET['search'] . "%\"";
+        $result = $db->conn->query($query);
 
-//     while ($row = $result->fetch_assoc()) {
-//         $movies[] = new Movie($row['id'], $row['title'], $row['genre'], $row['producer'], $row['year'], $row['price']);
-//     }
-//     $db->conn->close();
-//     return $movies;
-// }
+        while ($row = $result->fetch_assoc()) {
+            $homes[] = new Home($row['id'], $row['address'], $row['room_count'], $row['is_house'], $row['floor']);
+        }
+        $db->conn->close();
+        return $homes;
+    }
 
 }
 
